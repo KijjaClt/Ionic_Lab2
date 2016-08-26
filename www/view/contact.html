@@ -1,0 +1,45 @@
+<ion-view title="My Contact">
+    <!-- Header Bar -->
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="btnDelete()">
+            <i class="icon ion-edit"></i>
+        </button>
+        <button class="button button-clear" ui-sref="add-page">
+            <i class="icon ion-ios-plus-outline"></i>
+        </button>
+    </ion-nav-buttons>
+    <!-- Content -->
+    <ion-content>
+        <!-- List Contact -->
+        <ion-list show-delete="shouldShowDelete">
+            <!-- Div Favorite Contact-->
+            <div class="item item-divider">
+                Favorite
+            </div>
+            <ion-item class="item item-avatar" href="#" ng-repeat="item in list" ng-if="item.isFav">
+                <img src="img/user.png">
+                <h2>{{ item.name }}</h2>
+                <p>{{ item.tel }}</p>
+                <ion-option-button class="button-assertive" ng-click="editFavorite($index)">
+                    <i class="icon ion-ios-star padding"></i>
+                </ion-option-button>
+                <ion-delete-button class="ion-minus-circled" ng-click="deleteContact($index)">
+                </ion-delete-button>
+            </ion-item>
+            <!-- Div Normal Contact -->
+            <div class="item item-divider">
+                Contact
+            </div>
+            <ion-item class="item item-avatar" href="#" ng-repeat="item in list" ng-if="!item.isFav">
+                <img src="img/user.png">
+                <h2>{{ item.name }}</h2>
+                <p>{{ item.tel }}</p>
+                <ion-option-button class="button-energized" ng-click="editFavorite($index)">
+                    <i class="icon ion-ios-star padding"></i>
+                </ion-option-button>
+                <ion-delete-button class="ion-minus-circled" ng-click="deleteContact($index)">
+                </ion-delete-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

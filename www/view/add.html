@@ -1,0 +1,16 @@
+<ion-view title="Create New Contact">
+    <ion-content>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Please enter a name" ng-model="name">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Phone number" ng-model="tel">
+            </label>
+            <ion-checkbox ng-model="favorite">Favorite</ion-checkbox>
+            <button class="button button-block button-positive" ng-disabled="name==null || name=='' || tel==null || tel==''" ng-click="save(name,tel,favorite)" ui-sref="contact-page">
+                Save
+            </button>
+        </div>
+    </ion-content>
+</ion-view>
